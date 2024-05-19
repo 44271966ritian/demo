@@ -14,4 +14,8 @@ public class Teacher {
         System.out.println("I am a teacher");
     }
 
+    public void test(){
+        System.out.println("现在开始考试");
+    }
+
 }
