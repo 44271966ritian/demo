@@ -10,4 +10,8 @@ public class Teacher {
 
     private int age;
 
+    public void say(){
+        System.out.println("I am a teacher");
+    }
+
 }
