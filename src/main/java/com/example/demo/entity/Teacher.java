@@ -18,4 +18,8 @@ public class Teacher {
         System.out.println("现在开始考试");
     }
 
+    public void checkHomework(){
+        System.out.println("突击检查昨天留下作业");
+    }
+
 }
