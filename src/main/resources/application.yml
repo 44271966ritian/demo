@@ -1,0 +1,47 @@
+server:
+  port: 8080
+wuhan2020: 2020年初武汉爆发了新型冠状病毒，疫情严重，但是，我相信一切都会过去！武汉加油！中国加油！
+
+
+library:
+  location: 北京
+  email: 2384514075@qq.com
+  books:
+    - name: 天才基本法
+      description: 二十二岁的林朝夕在父亲确诊阿尔茨海默病这天，得知自己暗恋多年的校园男神裴之即将出国深造的消息——对方考取的学校，恰是父亲当年为她放弃的那所。
+    - name: 时间的秩序
+      description: 为什么我们记得过去，而非未来？时间“流逝”意味着什么？是我们存在于时间之内，还是时间存在于我们之中？卡洛·罗韦利用诗意的文字，邀请我们思考这一亘古难题——时间的本质。
+    - name: 了不起的我
+      description: 如何养成一个新习惯？如何让心智变得更成熟？如何拥有高质量的关系？ 如何走出人生的艰难时刻？
+
+
+spring:
+  rabbitmq:
+    host: 192.168.6.100
+    port: 5672
+    virtual-host: /hmall
+    username: hmall
+    password: 123456
+    listener:
+      simple:
+        prefetch: 1 #每次消费者只能够获取一条消息，处理完成才能够获取下一个消息
+        retry:
+          enabled: true
+          initial-interval: 1000ms
+          multiplier: 1
+          max-attempts: 3 #最大重试次数
+
+      direct:
+        acknowledge-mode: auto #配置消费者确认机制，自动确认机制下，无业务入侵，会根据 成功消费/异常/消息格式不正确 来决定返回的ack
+    connection-timeout: 1s #设置mq的连接超时时间
+    template:
+      retry:
+        enabled: true #是否开启重试机制
+        initial-interval: 1000ms #失败后的初始等待时间
+        multiplier: 1 #失败之后下次等待时间的倍数
+        max-attempts: 3 #最大重试次数
+    publisher-confirm-type: correlated #开启publisher confirm机制，并且设置confirm类型为异步回调
+    publisher-returns: true #开启publisher return 机制 返回路由失败消息
+
+
+
