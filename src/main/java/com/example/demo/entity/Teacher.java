@@ -26,4 +26,8 @@ public class Teacher {
         System.out.println("教师正在上课");
     }
 
+    public void gitlab(){
+        System.out.println("尝试提交到gitlab");
+    }
+
 }
