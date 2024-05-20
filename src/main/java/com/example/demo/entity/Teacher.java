@@ -22,4 +22,8 @@ public class Teacher {
         System.out.println("突击检查昨天留下作业");
     }
 
+    public void work(){
+        System.out.println("教师正在上课");
+    }
+
 }
